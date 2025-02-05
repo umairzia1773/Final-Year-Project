@@ -35,7 +35,7 @@ Thumbnail
 
 This flow demonstrates how the RAG system combines external knowledge retrieval with language model capabilities to deliver contextual and accurate responses.
 
-App
+App.py
 ==
 This app.py file implements a Streamlit-based chatbot application enhanced with Retrieval-Augmented Generation (RAG). Here's a brief description:
 
@@ -73,3 +73,43 @@ Stores prompts and the vector database in Streamlit's session state to maintain 
 
 **Purpose:**
 This app is designed to allow users to upload PDF documents and ask context-based questions. The chatbot fetches relevant content from the uploaded documents and provides answers with metadata references, offering a highly focused and interactive experience.
+
+
+Brain.py
+==
+This brain.py file provides utility functions to process PDF files and create a vector database for efficient similarity-based content retrieval.
+
+**Key Features:**
+**PDF Parsing:**
+
+**parse_pdf:**
+Reads the content of a PDF file using PdfReader.
+Cleans and processes text (e.g., merges hyphenated words, removes extraneous newlines).
+Returns a list of cleaned text pages along with the filename.
+
+**Text to Documents Conversion:**
+
+**text_to_docs:**
+Splits the text content of each PDF page into manageable chunks using a RecursiveCharacterTextSplitter.
+
+Each chunk is converted into a Document object with metadata:
+**--Page number.
+--Chunk index.
+--Source (combination of page and chunk indices).
+--Filename (for referencing in answers).**
+
+**Document Indexing:**
+
+**docs_to_index:**
+
+Converts a list of Document objects into a searchable FAISS index.
+Uses OpenAI embeddings for encoding the document text.
+End-to-End Index Creation:
+
+**get_index_for_pdf:**
+
+Processes multiple PDF files by parsing, chunking, and indexing their content.
+Returns a FAISS vector database for retrieval operations.
+
+**Purpose:**
+This file serves as the "brain" behind the chatbot's ability to process and understand PDF content. It extracts, cleans, and structures PDF text into indexed chunks, enabling quick and accurate similarity-based searches when responding to user queries.
