@@ -1,0 +1,2 @@
+The __pycache__ directory is used by Python to store compiled bytecode files. 
+These files have the extension .pyc and are created automatically when a Python script is run.
