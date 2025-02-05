@@ -12,3 +12,10 @@ REQUIREMENT.TXT
 **pypdf: A library for reading and extracting text from PDF files.**
 
 **tiktoken: A tokenizer library used to process text input efficiently, often in the context of LLM-based applications.**
+
+
+PYCACHE
+=====
+
+**The __pycache__ directory is used by Python to store compiled bytecode files. 
+These files have the extension .pyc and are created automatically when a Python script is run.**
