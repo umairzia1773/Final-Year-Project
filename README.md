@@ -1,3 +1,6 @@
+CHATBOT RAG VERSION 1
+=========================
+
 **For the front-end : app.py**
 
 **PDF parsing and indexing : brain.py**
