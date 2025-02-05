@@ -1,0 +1,107 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": ["Hello", "Hi", "Hey", "How are you?", "Good morning", "Good evening"],
+            "responses": ["Hello! How can I assist you with web scraping?", "Hi there! What do you need help with?", "Hey! I'm here to answer your scraping questions."]
+        },
+        {
+            "tag": "what_is_web_scraping",
+            "patterns": ["What is web scraping?", "Can you explain web scraping?", "Define web scraping"],
+            "responses": [
+                "Web scraping is the process of extracting data from websites using automated tools or scripts.",
+                "It involves collecting and analyzing data from web pages programmatically."
+            ]
+        },
+        {
+            "tag": "tools",
+            "patterns": ["What are the best tools for web scraping?", "Recommend some web scraping tools", "Tools for scraping"],
+            "responses": [
+                "Popular tools for web scraping include Beautiful Soup, Scrapy, Selenium, and Puppeteer.",
+                "You can use frameworks like Scrapy for large-scale scraping or libraries like Beautiful Soup for simple tasks."
+            ]
+        },
+        {
+            "tag": "captcha_handling",
+            "patterns": ["How to handle CAPTCHA during scraping?", "Can I bypass CAPTCHA?", "Dealing with CAPTCHA in scraping"],
+            "responses": [
+                "CAPTCHA can be handled using OCR libraries like Tesseract or by using third-party services such as 2Captcha or Anti-Captcha.",
+                "For more advanced cases, integrating AI-based CAPTCHA solvers can also help."
+            ]
+        },
+        {
+            "tag": "javascript_handling",
+            "patterns": ["How to scrape JavaScript-heavy websites?", "Dealing with JavaScript pages", "Scraping dynamic content"],
+            "responses": [
+                "For JavaScript-heavy websites, you can use tools like Selenium, Puppeteer, or Playwright to render the JavaScript before scraping.",
+                "Using headless browsers is an effective way to extract data from JavaScript-driven pages."
+            ]
+        },
+        {
+            "tag": "rate_limiting",
+            "patterns": ["What is rate limiting in web scraping?", "Explain rate limiting", "How to handle rate limits?"],
+            "responses": [
+                "Rate limiting is a restriction imposed by servers to limit the number of requests a client can make in a certain period.",
+                "To handle rate limiting, implement delays between requests, use rotating proxies, or manage headers to mimic human behavior."
+            ]
+        },
+        {
+            "tag": "ethical_scraping",
+            "patterns": ["What is ethical web scraping?", "Explain ethical scraping", "Is scraping legal?"],
+            "responses": [
+                "Ethical scraping involves following website terms of service, respecting robots.txt, and avoiding excessive requests that could harm the server.",
+                "Always check the legality of scraping specific websites and obtain proper permissions if required."
+            ]
+        },
+        {
+            "tag": "data_storage",
+            "patterns": ["How to store scraped data?", "Best ways to save data?", "Saving web scraping results"],
+            "responses": [
+                "Scraped data can be stored in formats like CSV, JSON, or databases like MySQL, PostgreSQL, or MongoDB.",
+                "You can use Python libraries like Pandas for saving data to CSV or JSON formats."
+            ]
+        },
+        {
+            "tag": "proxy_usage",
+            "patterns": ["What are proxies?", "Why use proxies in scraping?", "How to avoid IP bans?"],
+            "responses": [
+                "Proxies act as intermediaries between your scraper and the target website to hide your IP address.",
+                "Using rotating proxies or residential proxies helps avoid IP bans during scraping."
+            ]
+        },
+        {
+            "tag": "headers_and_user_agents",
+            "patterns": ["What are user agents?", "Why are headers important?", "How to avoid detection in scraping?"],
+            "responses": [
+                "User agents are strings that identify your browser or scraper to the website server.",
+                "Set custom headers and user agents to mimic a real user and avoid detection."
+            ]
+        },
+        {
+            "tag": "pagination",
+            "patterns": ["How to scrape multiple pages?", "Explain pagination scraping", "Scraping paginated websites"],
+            "responses": [
+                "Pagination scraping involves iterating through multiple pages by modifying URL parameters or interacting with the 'Next' button.",
+                "Identify the URL pattern for pages or use Selenium to click 'Next' buttons dynamically."
+            ]
+        },
+        {
+            "tag": "error_handling",
+            "patterns": ["How to handle errors during scraping?", "Scraping error handling", "Common issues in scraping"],
+            "responses": [
+                "Implement try-except blocks in your code to handle errors gracefully.",
+                "Common issues include timeouts, broken links, and missing data. Use robust error handling and logging to identify and resolve them."
+            ]
+        },
+        {
+            "tag": "thanks",
+            "patterns": ["Thank you", "Thanks a lot", "I appreciate it"],
+            "responses": ["You're welcome! Happy scraping!", "Glad I could help!", "Anytime! Let me know if you have more questions."]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": ["Goodbye", "Bye", "See you later"],
+            "responses": ["Goodbye! Have a great day!", "Bye! Happy scraping!", "See you next time!"]
+        }
+    ]
+}
