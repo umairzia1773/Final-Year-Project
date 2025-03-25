@@ -1,6 +1,6 @@
 # WEB WORK
 
-```markdown
+markdown
 # AI Chat Application
 
 A modern web-based chat application with AI capabilities, featuring real-time messaging, session management, and a responsive interface.
