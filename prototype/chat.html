@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    
+    <!-- Link to the CSS file using Flask's url_for -->
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="chat-container d-flex">
+        <div id="history-panel" class="history-panel p-3 bg-primary text-white">
+            <header class="history-header text-center mb-3">
+                <h3>Chat History</h3>
+            </header>
+            <ul id="history-list" class="list-unstyled">
+                <li>No chats yet...</li>
+            </ul>
+        </div>
+
+        <div id="chat-area" class="chat-area d-flex flex-column w-100">
+            <div class="chat-header d-flex justify-content-between align-items-center p-3 bg-info text-white">
+                <h3 class="m-0">Chatbot</h3>
+                <div class="header-buttons">
+                    <button id="toggle-history-btn" class="btn btn-light btn-sm"><i class="fas fa-history"></i></button>
+                    <button id="profile-btn" class="btn btn-light btn-sm"><i class="fas fa-user"></i></button>
+                    <button id="theme-toggle" class="btn btn-dark btn-sm"><i class="fas fa-moon"></i> Dark Theme</button>
+                </div>
+            </div>
+
+            <!-- <div id="chat-body" class="chat-body flex-grow-1 overflow-auto p-3">
+                {% for message in messages %}
+                <div class="chat-message bot-message">
+                    <p>{{ message.content | markdown | safe }}</p>
+                </div>
+                {% endfor %}
+            </div> -->
+            <!-- <div id="chat-body" class="chat-body flex-grow-1 overflow-auto p-3">
+                <div class="chat-message bot-message">
+                   
+                    {% if message and message.content %}
+                        <p>{{ message.content | markdown | safe }}</p>
+                    {% else %}
+                        <p>No messages yet. Start the conversation!</p>
+                    {% endif %}
+                </div> -->
+                <div id="chat-body" class="chat-body flex-grow-1 overflow-auto p-3">
+                    {% for message in messages %}
+                        <div class="chat-message {% if message.sender == 'user' %}user-message{% else %}bot-message{% endif %}">
+                            <p>{{ message.message }}</p>
+                            <small>{{ message.timestamp }}</small>
+                        </div>
+                    {% endfor %}
+                </div>
+            
+            </div>
+            
+
+            <div class="chat-footer d-flex align-items-center p-3 bg-light border-top">
+                <!-- Attachment button triggers the file input -->
+                <button id="attachment-btn" class="btn btn-secondary me-2">
+                    <i class="fas fa-paperclip"></i>
+                </button>
+                
+                <!-- Hidden file input element for uploading PDFs -->
+                <input type="file" id="file-input" class="d-none" accept=".pdf">
+                
+                <textarea id="user-input" class="form-control me-2" placeholder="Type your message here..."></textarea>
+                <button id="send-button" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to the JavaScript file using Flask's url_for -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+
+    <script>
+        // When attachment button is clicked, trigger the file input
+        document.getElementById('attachment-btn').addEventListener('click', function() {
+            document.getElementById('file-input').click();
+        });
+
+        // Handle file selection
+        document.getElementById('file-input').addEventListener('change', function(event) {
+            var file = event.target.files[0];
+            if (file && file.type === 'application/pdf') {
+                var formData = new FormData();
+                formData.append('file', file);
+                
+                // Send the file to the backend (Flask) for uploading
+                fetch('/upload', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message) {
+                        console.log(data.message); // File uploaded successfully
+                    } else if (data.error) {
+                        console.error(data.error); // Error message
+                    }
+                })
+                .catch(error => {
+                    console.error("Error uploading file:", error);
+                });
+            } else {
+                alert("Please select a PDF file.");
+            }
+        });
+    </script>
+</body>
+</html>
