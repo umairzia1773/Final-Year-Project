@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify OTP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="split-container">
+        <!-- Left Section -->
+        <div class="left-section">
+            <div class="abstract-design">
+                <div class="progress-box">
+                    <p>We have sent an OTP to your email.<br>Enter the OTP below to verify your identity.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Section -->
+        <div class="right-section">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <h1>Verify OTP</h1>
+            <form id="otp-verification-form" method="POST" action="{{ url_for('verify_otp') }}">
+                <label for="otp">Enter the OTP sent to your email</label>
+                <div class="otp-container">
+                    <input type="text" id="otp" name="otp" placeholder="123456" required>
+                    <!-- Link for Resend OTP after countdown -->
+                    <a href="{{ url_for('resend_otp') }}" id="resend-link">Resend OTP</a>
+                    <!-- Countdown Timer inside the Input Field -->
+                    <span id="timer-text">120</span>
+                </div>
+                <div id="otp-error" class="feedback"></div>
+                <button type="submit">VERIFY</button>
+            </form>
+
+
+            <!-- <form id="resend-otp-form" method="POST" action="{{ url_for('resend_otp') }}">
+                <button type="submit">Resend OTP</button>
+            </form> -->
+
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

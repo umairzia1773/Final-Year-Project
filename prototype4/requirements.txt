@@ -1,0 +1,16 @@
+Flask
+Flask-Cors
+markdown2
+Markdown
+psycopg2
+psycopg2-binary
+Flask-Bcrypt
+python-dotenv
+pdfplumber
+ollama
+langchain-groq
+langchain
+langchain-community
+langchain-ollama
+faiss-cpu
+langchain-huggingface
