@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="split-container">
+        <!-- Left Section -->
+        <div class="left-section">
+            <div class="abstract-design">
+                <h2>Welcome Back!</h2>
+                <p>Log in to continue and explore amazing features.</p>
+            </div>
+        </div>
+
+        <!-- Right Section -->
+        <div class="right-section">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <h1>Login</h1>
+            <form id="login-form" action="{{ url_for('login') }}" method="POST" data-chat-url="{{ url_for('chat') }}">
+                <div class="input-group_login">
+                    <label for="email">Email</label>
+                    <!-- <input type="email" id="email" placeholder="hello@gmail.com" required> -->
+                    <input type="email" id="email" name="email" placeholder="hello@gmail.com" required>
+                </div>
+                <div class="input-group_login">
+                    <label for="password">Password</label>
+                    <!-- <input type="password" id="password" placeholder="Enter your password" required> -->
+                    <input 
+                    type="password" 
+                    id="password" 
+                    name="password"
+                    placeholder="Enter password"
+                    required
+                    >
+                    <button type="button" class="toggle-password-login" 
+                    onclick="togglePasswordVisibility('password', this)"
+
+                    data-field-id="password"
+                    aria-label="Show password">
+                    <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        width="24" 
+        height="24" 
+        viewBox="0 0 24 24" 
+        fill="none" 
+        stroke="currentColor" 
+        stroke-width="2" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+    >
+        <!-- Eye icon -->
+        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+        <circle cx="12" cy="12" r="3"></circle>
+        
+        <!-- Slash line (hidden by default) -->
+        <line id="slash" x1="4" y1="4" x2="20" y2="20" stroke="currentColor" stroke-width="2" style="display: none;" />
+    </svg>
+    </button>
+
+    </div>
+                <button type="submit" id="login-button">LOGIN</button>
+            </form>
+            <div class="extra-links">
+                <a href="{{ url_for('password') }}">Forgot Password?</a>
+                <p>Don't have an account? <a href="{{ url_for('signup') }}">Sign up</a></p>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
