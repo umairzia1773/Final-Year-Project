@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistant</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImEiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojNDI4NkY0Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMkI2OEQyIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PGNpcmNsZSBjeD0iMjU2IiBjeT0iMjU2IiByPSIyNTYiIGZpbGw9InVybCgjYSkiLz48cGF0aCBkPSJNMjEzIDEzMmgzMHYzMGgtMzB6TTI2OSAxMzJoMzB2MzBoLTMwek0yMTMgMzUwaDMwdjMwaC0zMHpNMjY5IDM1MGgzMHYzMGgtMzB6IiBmaWxsPSIjRkZGIi8+PHBhdGggZD0iTTM4MiAyNDFjMCA2OS44LTU2LjYgMTI2LTEyNiAxMjZzLTEyNi01Ni4yLTEyNi0xMjZjMC02OS44IDU2LjYtMTI2IDEyNi0xMjZzMTI2IDU2LjIgMTI2IDEyNnoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIyNCIvPjxwYXRoIGQ9Ik0yOTkgMjQxYzAgMjMuNy0xOS4zIDQzLTQzIDQzcy00My0xOS4zLTQzLTQzIDE5LjMtNDMgNDMtNDMgNDMgMTkuMyA0MyA0M3oiIGZpbGw9IiNGRkYiLz48L3N2Zz4=">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon-16x16.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Include highlight.js for code syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+</head>
+<body data-user-id="{{ user_id | tojson | safe }}" data-user-email="{{ user_email | tojson | safe }}">
+    <div class="chat-container">
+        <!-- History Panel -->
+        <div id="history-panel" class="history-panel">
+            <div class="history-header">
+                <button id="new-chat-btn">
+                    <i class="fas fa-plus"></i> New Chat
+                </button>
+            </div>
+            <ul id="history-list">
+                <!-- Chat history items will be inserted here -->
+            </ul>
+        </div>
+
+        <!-- Main Chat Area -->
+        <div id="chat-area" class="chat-area">
+            <div class="chat-header">
+                <div class="header-left">
+                    <button id="toggle-history-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="app-title">
+                        <img src="{{ url_for('static', filename='images/images.png') }}" alt="AI" class="app-icon">
+                        <span>AI Assistant</span>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="user-profile">
+                        <button id="profile-btn" class="profile-btn" title="Profile">
+                            <i class="fas fa-user"></i>
+                        </button>
+                        <div class="profile-dropdown">
+                            <div class="profile-info">
+                                <i class="fas fa-envelope"></i>
+                                <span>{{ user_email }}</span>
+                            </div>
+                            <a href="{{ url_for('logout') }}" class="dropdown-item logout-item">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </div>
+                    <button id="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="chat-body" class="chat-body">
+                <!-- Chat messages will be inserted here -->
+            </div>
+
+            <div class="chat-footer">
+                <div class="input-container">
+                    <div class="attachment-wrapper">
+                        <button id="attachment-btn" type="button" class="input-button" title="Attach PDF">
+                        <i class="fas fa-paperclip"></i>
+                    </button>
+                        <input type="file" id="file-input" accept=".pdf">
+                        <div class="attachment-preview">
+                            <div class="file-info">
+                                <i class="fas fa-file-pdf"></i>
+                                <span class="file-name"></span>
+                                <button type="button" class="remove-file" title="Remove file">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <textarea id="user-input" placeholder="Type your message..." rows="1"></textarea>
+                    <button id="send-button" type="button" class="input-button">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="disclaimer">
+                    AI responses may not always be accurate. Verify important information.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.2.12/marked.min.js"></script>
+    
+    <!-- Add this script to verify JavaScript is running -->
+    <script>
+        console.log('Page loaded');
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOM Content Loaded');
+            // Verify elements exist
+            const attachmentBtn = document.getElementById('attachment-btn');
+            const fileInput = document.getElementById('file-input');
+            const profileBtn = document.getElementById('profile-btn');
+            const profileDropdown = document.querySelector('.profile-dropdown');
+
+            console.log('Elements found:', {
+                attachmentBtn: !!attachmentBtn,
+                fileInput: !!fileInput,
+                profileBtn: !!profileBtn,
+                profileDropdown: !!profileDropdown
+            });
+
+            // Handle profile dropdown
+            if (profileBtn && profileDropdown) {
+                profileBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    profileDropdown.classList.toggle('show');
+                });
+
+                // Close dropdown when clicking outside
+                document.addEventListener('click', () => {
+                    profileDropdown.classList.remove('show');
+                    });
+                }
+        });
+    </script>
+    
+    <!-- Load main chat.js -->
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+</body>
+</html>
