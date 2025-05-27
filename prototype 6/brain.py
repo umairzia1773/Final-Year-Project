@@ -16,9 +16,12 @@ from langchain_community.vectorstores.faiss import FAISS # type: ignore
 # from langchain_community.embeddings.huggingface import HuggingFaceEmbeddings # type: ignore
 from langchain_huggingface import HuggingFaceEmbeddings
 
+import os
 
-groq_api_key = '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'
-os.environ["OLLAMA_API_KEY"] = "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"
+load_dotenv()
+
+groq_api_key = os.getenv("GROQ_API_KEY")
+ollama_api_key = os.getenv("OLLAMA_API_KEY")
 
 llm = ChatGroq(groq_api_key=groq_api_key, model_name="llama-3.3-70b-versatile", max_tokens=32768)
 
