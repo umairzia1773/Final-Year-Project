@@ -36,24 +36,26 @@ load_dotenv()
 
 # app.secret_key = 'your_secret_key'  # Required for session flash messages
 # app.secret_key = os.getenv("SECRET_KEY")
+app.secret_key = os.environ.get('SECRET_KEY')
+
 bcrypt = Bcrypt(app)
 
 conn = psycopg2.connect(
-    dbname="user_auth",
-    user="postgres",         # Change to your PostgreSQL username
-    password="fypwork",  # Change to your PostgreSQL password
-    host="localhost",
-    port="5432"
+        dbname=os.getenv("POSTGRES_DB", "user_auth"),
+        user=os.getenv("POSTGRES_USER", "postgres"),
+        password=os.getenv("POSTGRES_PASSWORD"),
+        host=os.getenv('POSTGRES_HOST', 'localhost'),
+        port=os.getenv("POSTGRES_PORT", "5432")
 )
 cursor = conn.cursor()
 
 def get_db_connection():
     conn = psycopg2.connect(
-        dbname="user_auth",  # Your database name
-        user="postgres",  # Your PostgreSQL username
-        password="fypwork",  # Your password
-        host="localhost",  # Host, typically localhost for local setup
-        port="5432"  # Default PostgreSQL port
+        dbname=os.getenv("POSTGRES_DB", "user_auth"),
+        user=os.getenv("POSTGRES_USER", "postgres"),
+        password=os.getenv("POSTGRES_PASSWORD"),
+        host=os.getenv('POSTGRES_HOST', 'localhost'),
+        port=os.getenv("POSTGRES_PORT", "5432")  # Default PostgreSQL port
     )
     return conn
 
@@ -72,11 +74,10 @@ def is_password_strong(password):
     return True
 
 # Email configuration (use a test email service like Gmail or SendGrid)
-SMTP_SERVER = "smtp.gmail.com"  # You can also use other SMTP servers
-SMTP_PORT = 587
-SENDER_EMAIL = os.getenv("SENDER_EMAIL")  # Replace with your email
-SENDER_PASSWORD = os.getenv("SENDER_PASSWORD")  # Replace with your email password or app-specific password
-RECIPIENT_EMAIL = ""  # Will be set dynamically
+SMTP_SERVER = os.getenv("SMTP_SERVER", "smtp.gmail.com")
+SMTP_PORT = int(os.getenv("SMTP_PORT", 587))
+SENDER_EMAIL = os.getenv("SENDER_EMAIL")
+SENDER_PASSWORD = os.getenv("SENDER_PASSWORD")
 
 # OTP Generation
 def generate_otp():
