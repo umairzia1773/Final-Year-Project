@@ -1,0 +1,22 @@
+X-Content-Type-Options: nosniff
+X-Xss-Protection: 1; mode=block
+X-Frame-Options: SAMEORIGIN
+Accept-Ch: sec-ch-ua-model,sec-ch-ua-platform-version,sec-ch-ua-full-version
+Content-Type: text/html; charset=utf-8
+Rlogid: t6q4pnmjbb70ehmq%3C%3Dq4pnmjbb70ehmq%2B%3Eagd2gf%600.%7Dwpno-196dd319486-0x1b02
+X-Envoy-Upstream-Service-Time: 616
+Server: ebay-proxy-server
+Content-Encoding: gzip
+Strict-Transport-Security: max-age=31536000
+Date: Sat, 17 May 2025 07:42:16 GMT
+Vary: Accept-Encoding
+Set-Cookie: dp1=bbl/PK6beaa4d8^; Domain=.ebay.com; Path=/; Expires=Mon, 17 May 2027 07:42:16 GMT; Secure
+Set-Cookie: nonsession=BAQAAAZZay1gcAAaAADMABWoJcVg0NDAwMADKACBr6qTYZGQzMGMzMzUxOTYwYWI0Y2E5YjcyMmY2ZmZmZmIxOWIAywABaChE4DRAoygu+KbD6K2r+MfAskZFcTK95w**; Domain=.ebay.com; Path=/; Expires=Mon, 17 May 2027 07:42:16 GMT; HttpOnly; Secure
+Set-Cookie: s=CgADuADpoKY9YMTQGaHR0cHM6Ly93d3cuZWJheS5jb20vYi9Xb21lbnMtQ2xvdGhpbmcvMTU3MjQvYm5fNjYxNzgzBwD4ACBoKY8iZGQzMGMzMzUxOTYwYWI0Y2E5YjcyMmY2ZmZmZmIxOWLVS2cs; Domain=.ebay.com; Path=/; HttpOnly; Secure
+Set-Cookie: ebay=%5Esbf%3D%23000000%5E; Domain=.ebay.com; Path=/; Secure
+Set-Cookie: __uzma=f5bf2eb4-e94f-4efb-ac8d-446e3ebb197d; Path=/; Domain=.ebay.com; Expires=Thu, 13 Nov 2025 07:42:16 UTC
+Set-Cookie: __uzmb=1747467688; Path=/; Domain=.ebay.com; Expires=Thu, 13 Nov 2025 07:42:16 UTC
+Set-Cookie: __uzmc=173451694323; Path=/; Domain=.ebay.com; Expires=Thu, 13 Nov 2025 07:42:16 UTC
+Set-Cookie: __uzmd=1747467736; Path=/; Domain=.ebay.com; Expires=Thu, 13 Nov 2025 07:42:16 UTC
+Set-Cookie: __uzme=7267; Path=/; Domain=.ebay.com; Expires=Thu, 13 Nov 2025 07:42:16 UTC
+Set-Cookie: __uzmf=7f6000aec66aef-a76d-4e38-b7be-87e9adad1731174746768828947896-72d3ae4df774f0f816; Path=/; Domain=.ebay.com; Expires=Thu, 13 Nov 2025 07:42:16 UTC

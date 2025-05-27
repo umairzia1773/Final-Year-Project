@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImEiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojNDI4NkY0Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMkI2OEQyIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PGNpcmNsZSBjeD0iMjU2IiBjeT0iMjU2IiByPSIyNTYiIGZpbGw9InVybCgjYSkiLz48cGF0aCBkPSJNMjEzIDEzMmgzMHYzMGgtMzB6TTI2OSAxMzJoMzB2MzBoLTMwek0yMTMgMzUwaDMwdjMwaC0zMHpNMjY5IDM1MGgzMHYzMGgtMzB6IiBmaWxsPSIjRkZGIi8+PHBhdGggZD0iTTM4MiAyNDFjMCA2OS44LTU2LjYgMTI2LTEyNiAxMjZzLTEyNi01Ni4yLTEyNi0xMjZjMC02OS44IDU2LjYtMTI2IDEyNi0xMjZzMTI2IDU2LjIgMTI2IDEyNnoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIyNCIvPjxwYXRoIGQ9Ik0yOTkgMjQxYzAgMjMuNy0xOS4zIDQzLTQzIDQzcy00My0xOS4zLTQzLTQzIDE5LjMtNDMgNDMtNDMgNDMgMTkuMyA0MyA0M3oiIGZpbGw9IiNGRkYiLz48L3N2Zz4=">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon-16x16.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+
+        
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="split-container">
+        <!-- Left Section -->
+        <div class="left-section">
+            <div class="abstract-design">
+                <h2>Join Us!</h2>
+                <p>Create an account to enjoy exclusive features and updates.</p>
+            </div>
+        </div>
+        
+
+        <!-- Right Section -->
+        <div class="right-section">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <h1>Sign Up</h1>
+            <!-- autocomplete="off" addd in bellow line end -->
+            <form id="signup-form" method="POST" action="{{ url_for('signup') }}"> 
+                <div class="input-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="hello@gmail.com" required>
+                <label for="password">Password</label>
+                </div>
+        <div class="password-input-container">
+            <input 
+                type="password" 
+                id="password" 
+                name="password"
+                placeholder="Enter password"
+                aria-describedby="password-rules-box"
+                required
+            >
+            
+            <button type="button" class="toggle-password" 
+                    onclick="togglePasswordVisibility('password', this)"
+
+                    data-field-id="password"
+                    class="toggle-password"  
+                    aria-label="Show password">
+                    <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        width="24" 
+        height="24" 
+        viewBox="0 0 24 24" 
+        fill="none" 
+        stroke="currentColor" 
+        stroke-width="2" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+    >
+        <!-- Eye icon -->
+        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+        <circle cx="12" cy="12" r="3"></circle>
+        
+        <!-- Slash line (hidden by default) -->
+        <line id="slash" x1="4" y1="4" x2="20" y2="20" stroke="currentColor" stroke-width="2" style="display: none;" />
+    </svg>
+    </button>
+                    <!-- Small pop-up box for password rules -->
+                    <div id="password-rules-box" class="password-rules-box">
+                        <p>Password must meet the following requirements:</p>
+                        <ol>
+                            <li id="length">At least 8 characters long</li>
+                            <li id="letters">Include at least 1 uppercase and lowercase letter</li>
+                            <li id="numbers-special">Include at least 1 number and 1 special character (@, $, etc.)</li>
+                        </ol>
+                    </div>
+                </div>
+                <label for="confirm-password">Confirm Password</label>
+        <div class="password-input-container">
+            <input 
+                type="password" 
+                id="confirm-password"  
+                name="confirm-password"
+                placeholder="Confirm your password"
+                required
+            >
+            <button type="button" 
+                    onclick="togglePasswordVisibility('confirm-password', this)"
+                    data-field-id="confirm-password"                    
+                    class="toggle-password" 
+                    aria-label="Show password">
+                    <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        width="24" 
+        height="24" 
+        viewBox="0 0 24 24" 
+        fill="none" 
+        stroke="currentColor" 
+        stroke-width="2" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+    >
+        <!-- Eye icon -->
+        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+        <circle cx="12" cy="12" r="3"></circle>
+        
+        <!-- Slash line (hidden by default) -->
+        <line id="slash" x1="4" y1="4" x2="20" y2="20" stroke="currentColor" stroke-width="2" style="display: none;" />
+    </svg>
+            </button>
+            </div>
+            <!-- <div id="confirm-password-error" class="error-messages"></div> -->
+
+            
+
+                <!-- <div id="password-match-error" class="feedback"></div> -->
+                <!-- <div id="password-error" class="feedback"></div> -->
+                <!-- <div id="captcha-error" class="feedback"></div> -->
+                <div class="g-recaptcha" data-sitekey="6LdhBOcqAAAAAN1ZJhz9tMEqz9cDbGsZ3-Kh6CAo"></div>
+                <button type="submit">SIGN UP</button>
+            </form>
+            <div class="extra-links">
+                <p>Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+                
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

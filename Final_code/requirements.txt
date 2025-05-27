@@ -1,0 +1,23 @@
+Flask==3.0.2
+flask-cors==4.0.0
+Werkzeug==3.0.1
+markdown2==2.4.12
+markdown==3.5.2
+psycopg2==2.9.9
+flask-bcrypt==1.0.1
+python-dotenv==1.0.1
+requests==2.31.0
+PyPDF2==3.0.1
+email-validator==2.1.0.post1
+python-dateutil==2.8.2
+# smtplib
+pytz==2024.1
+ollama
+langchain-groq
+langchain
+langchain-community
+langchain-ollama
+faiss-cpu
+langchain-huggingface
+dicttoxml==1.7.16
+gunicorn

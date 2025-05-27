@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+*.db
+
+# Virtual environment
+venv/
+ENV/
+env/
+.venv/
+
+# Environment variables
+.env
+
+# Scrapy cache
+# .scrapy/
+
+# Uploaded files
+uploads/
+
+# Scraped data
+scraped_data/
+
+# Compiled files
+*.so
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Backup files
+*~
+*.bak
+
+# Node modules (if any JS/Node used)
+node_modules/
+
+# Tester and documentation zips
+tester.zip
+documentation code.zip
+
+# Any other large or generated files
+*.zip

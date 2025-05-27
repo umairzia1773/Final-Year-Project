@@ -1,0 +1,481 @@
+/* Modernized styles with additional creative design */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #282c34, #4b6cb7);
+    overflow: hidden;
+    position: relative;
+    overflow-y: auto;
+}
+
+body::before, body::after {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    filter: blur(100px);
+    animation: float 6s ease-in-out infinite;
+}
+
+body::before {
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+body::after {
+    bottom: 10%;
+    right: 10%;
+    animation-delay: 3s;
+}
+
+.split-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    min-height: 70%;
+    max-height: 90vh;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    animation: fadeIn 1.5s ease;
+    z-index: 2;
+    position: relative;
+}
+
+.split-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('/static/images/premium_photo-1683121710572-7723bd2e235d.jpg') no-repeat center center;
+    /* background: url('https://picsum.photos/1200/800?random') no-repeat center center; */
+    background-size: cover;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+/* Left Section */
+.left-section {
+    flex: 1;
+    background: linear-gradient(135deg, rgba(69, 120, 214, 0.8), rgba(147, 145, 145, 0.8));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+    animation: slideInLeft 1s ease;
+}
+
+.left-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.left-section p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.left-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    /* background: url('https://picsum.photos/1200/800?random') no-repeat center center; */
+    background: url('/static/images/Artificial-intelligence1.jpg') no-repeat center center;
+    background-size: cover;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+/* Right Section */
+.right-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+    animation: slideInRight 1s ease;
+    position: relative;
+}
+
+
+
+.right-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/static/images/premium_photo-1683121710572-7723bd2e235d.jpg') no-repeat center center;
+    background-size: cover;
+    opacity: 0.2;
+    z-index: -1;}
+
+.right-section h1 {
+    font-size: 2.5rem;
+    color: #4578d6;
+    margin-bottom: 5px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+
+.input-group_login {
+    display: flex;
+    position: relative; /* Make the container the reference point */
+    flex-direction: column;
+}
+
+input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #4578d6;
+    outline: none;
+}
+
+button {
+    padding: 12px;
+    font-size: 1rem;
+    background: linear-gradient(90deg, #4578d6, #3b5584);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+/* button:hover {
+    background: linear-gradient(90deg, #939191, #4578d6);
+} */
+
+.extra-links {
+    margin-top: 5px;
+}
+
+.extra-links a {
+    color: #4578d6;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.extra-links a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .split-container {
+        flex-direction: column;
+    }
+
+    .left-section {
+        padding: 20px;
+    }
+
+    .right-section {
+        padding: 20px;
+    }
+
+    form {
+        gap: 15px;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Styling for OTP input field container */
+.otp-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+/* Styling for the OTP input field */
+#otp {
+    width: calc(100% - 70px);  /* Adjust width to leave space for the timer and resend link */
+    padding-right: 60px;  /* Adjust padding to make space for the timer/link */
+}
+
+/* Styling for the countdown timer text inside the input field */
+#timer-text {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 17px;
+    color: #999;
+}
+
+/* Styling for the Resend OTP link */
+#resend-link {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 17px;
+    color: #007bff;
+    text-decoration: none;
+    display: none;  /* Initially hidden */
+}
+
+/* Style for Resend OTP link on hover */
+#resend-link:hover {
+    text-decoration: underline;
+}
+
+.feedback {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+    font-size: 14px;
+}
+.feedback.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+.feedback.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.alert {
+    padding: 11px;
+    margin-bottom: -20px;
+    border-radius: 8px;
+}
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+#password-feedback div,
+#password-match-feedback {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+#password-feedback span,
+#password-match-feedback {
+    margin-right: 5px;
+}
+
+#password-feedback .valid,
+#password-match-feedback.valid {
+    color: green;
+}
+
+#password-feedback .valid::before {
+    content: "✓";
+}
+
+#password-feedback .invalid,
+#password-match-feedback.invalid {
+    color: red;
+}
+
+#password-feedback .invalid::before {
+    content: "✗";
+}
+
+
+
+.password-rules-box {
+    position: absolute;
+    top: 100%; /* Position below the input field */
+    left: 0;
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffffff; /* Match form background */
+    width: 220px; /* Adjust width to make it compact */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: none; /* Hidden by default */
+    z-index: 10; /* Ensure it appears above other elements */
+    font-size: 12px; /* Smaller font size */
+    line-height: 1.4; /* Compact line spacing */
+}
+
+.password-rules-box ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.password-rules-box li {
+    margin: 3px 0; /* Reduce margin for compactness */
+    color: #666;
+}
+
+.password-rules-box li.valid {
+    color: green;
+}
+
+.feedback {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+    font-size: 14px;
+}
+
+.feedback-error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.feedback-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.error-message {
+    color: red;
+    margin: 0;    /* Remove margin */
+    padding: 0;   /* Remove padding */
+    display: none; /* Hide by default */
+}
+
+
+
+.error-messages {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin: 2px 0 0 0; /* Minimal spacing */
+    padding: 0;
+    display: none;
+  }
+
+
+
+  
+  .toggle-password {
+    position: absolute;
+    right: 9px;
+    top: 60%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    color: #666;
+    z-index: 2;
+}
+
+.toggle-password-login {
+    position: absolute;
+    right: 7px;
+    top: 66%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    color: #666;
+    z-index: 2;
+}
+
+.toggle-password svg {
+    width: 24px;
+    height: 24px;
+    stroke: #666; /* Line color */
+}
+
+
+/* Password Container */
+.input-group,
+.password-input-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;        /* So the toggle button can be absolutely positioned */
+    width: 100%;
+    margin-bottom: -0.2rem;
+}
+
+.password-input-container_reset{
+    display: flex;
+    flex-direction: column;
+    position: relative;        /* So the toggle button can be absolutely positioned */
+    width: 100%;
+    margin-bottom: 0.2rem;
+}
+
+.g-recaptcha {
+    margin-bottom: 0.3rem;
+    margin-top: 0.6rem
+
+}
+
+/* Input Field Styling */
+#password,
+#confirm-password {
+    /* width: 90%; */
+    padding: 12px 40px 12px 12px !important; /* Right padding for button */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}

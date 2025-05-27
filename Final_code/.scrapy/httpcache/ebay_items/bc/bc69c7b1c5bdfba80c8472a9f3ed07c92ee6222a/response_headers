@@ -1,0 +1,16 @@
+X-Content-Type-Options: nosniff
+X-Xss-Protection: 1; mode=block
+Accept-Ch: sec-ch-ua-model,sec-ch-ua-platform-version,sec-ch-ua-full-version
+Content-Security-Policy: connect-src 'self' *.ebay.com *.ebaystatic.com data: *.ebaycdn.net *.ebayimg.com *.google.com *.google-analytics.com *.doubleclick.net *.akamaihd.net *.glance.net *.ebayrtm.com *.googleapis.com wss://127.0.0.1:* *.ucweb.com *.online-metrix.net *.ebay-us.com *.amplitude.com *.quantummetric.com blob: *.bing.com *.pinterest.com *.graphitevault.com *.criteo.com *.googletagmanager.com *.googleadservices.com www.facebook.com *.snapchat.com google.com; script-src 'self' 'unsafe-eval' 'unsafe-inline' blob: data: *.ebay.com *.ebayrtm.com *.ebaystatic.com *.ebaystatic.cn *.paypal.com *.google.com *.googleapis.com *.google-analytics.com *.quantummetric.com *.akamaihd.net *.doubleclick.net *.googletagmanager.com *.cloudflare.com *.ucweb.com connect.facebook.net fidoapi.com *.glance.net *.pinterest.com *.criteo.com *.pinimg.com *.facebook.net *.googleadservices.com *.snapchat.com sc-static.net *.tiqcdn.com; upgrade-insecure-requests; frame-ancestors 'self' *.ebay.com; img-src 'self' blob: data: https://*; default-src 'self' 'unsafe-inline' *.ebay.com mediastream: blob: data: wss: *.gstatic.com *.ebaystatic.cn *.ebaystatic.com ws.cnetcontent.com *.ebayrtm.com *.quantummetric.com *.ebaycdn.net wss://127.0.0.1:* *.google.com *.googleapis.com *.google-analytics.com *.akamaihd.net *.glance.net *.doubleclick.com *.bluekai.com *.paypal.com use.fontawesome.com *.doubleclick.net *.ucweb.com *.bootstrapcdn.com *.cloudflare.com ws.cs.1worldsync.com *.ebaydesc.com *.analytics.yahoo.com *.adsrvr.org *.googletagmanager.com *.pinterest.com *.facebook.com *.criteo.com *.googleadservices.com *.criteo.net *.snapchat.com *.ebayadservices.com www.facebook.com;  report-uri https://monitor.ebay.com/csp-report/prpweb/prp?id=7950312397978553844&rid=t6swvpfg55%60jhs9%3Fvusrce07ehmq%2B0%3Bf%3E3%3B%3De2e(2%7Drw~-1967dd50657-0x2002#pd
+Content-Type: text/html;charset=UTF-8
+Rlogid: t6swvpfg55%60jhs9%3Fvusrce07ehmq%2B0%3Bf%3E3%3B%3De2e(2%7Drw~-1967dd50657-0x2002
+Content-Encoding: gzip
+X-Envoy-Upstream-Service-Time: 659
+Server: ebay-proxy-server
+Strict-Transport-Security: max-age=31536000
+Date: Mon, 28 Apr 2025 19:17:15 GMT
+Vary: Accept-Encoding
+Set-Cookie: dp1=bbl/PK6bd23b3a^; Domain=.ebay.com; Path=/; Expires=Wed, 28 Apr 2027 19:17:15 GMT; Secure
+Set-Cookie: nonsession=BAQAAAZZay1gcAAaAADMABWnxB7o1NDAwMADKACBr0js6N2RkNGEyZTAxOTYwYTg5NzY5NjQwNjBlZmZmZGMwMDUAywABaA/bQjhBlTSEp032YXrlr26MpA/XrgXGKg**; Domain=.ebay.com; Path=/; Expires=Wed, 28 Apr 2027 19:17:15 GMT; HttpOnly; Secure
+Set-Cookie: s=CgADuADxoESW2MTQGaHR0cHM6Ly93d3cuZWJheS5jb20vYi9DeWNsaW5nLUVxdWlwbWVudC83Mjk0L2JuXzE4NDg5MzcHAPgAIGgRJaE3ZGQ0YTJlMDE5NjBhODk3Njk2NDA2MGVmZmZkYzAwNYVHbac*; Domain=.ebay.com; Path=/; HttpOnly; Secure
+Set-Cookie: ebay=%5Esbf%3D%23000000%5E; Domain=.ebay.com; Path=/; Secure

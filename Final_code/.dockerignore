@@ -1,0 +1,31 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+*.pyc
+*.pyo
+*.pyd
+.env
+
+# Development
+.vscode/
+.idea/
+*.log
+
+# Project specific
+uploads/*
+!uploads/.gitkeep
+postgres_data/
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore 

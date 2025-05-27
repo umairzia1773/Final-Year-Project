@@ -1,0 +1,17 @@
+X-Content-Type-Options: nosniff
+X-Xss-Protection: 1; mode=block
+X-Frame-Options: SAMEORIGIN
+Accept-Ch: sec-ch-ua-model,sec-ch-ua-platform-version,sec-ch-ua-full-version
+Content-Security-Policy-Report-Only: style-src 'self' 'unsafe-inline' data: *.ebay.com *.ebaystatic.com *.ebaystatic.cn *.gstatic.com *.fontawesome.com *.cloudflare.com *.googleapis.com; connect-src 'self' *.ebay.com *.ebaystatic.com data: *.doubleclick.net *.doubleclick.com *.gstatic.com *.akamaihd.net *.ebayimg.com *.ebay.com.au *.ebay.de *.google.com *.facebook.com *.googleapis.com *.gstatic-cache.com *.fbanalytics.org *.pinterest.com *.amplitude.com *.criteo.com *.googlesyndication.com *.ucweb.com www.googletagmanager.com www.googleadservices.com wss://127.0.0.1:* *.google-analytics.com *.graphitevault.com *.bing.com www.facebook.com; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://* blob: data: *.alexa.com; frame-ancestors 'self' *.ebay.com *.ebaystatic.com; img-src 'self' 'unsafe-inline' https://* data: blob:; default-src 'self' blob: data: wss: mediastream: https://*;  report-uri https://monitor.ebay.com/csp-report/brwweb/brwweb_default?id=5376931874526678043&rid=t6awqpfgehmq%3C%3Dawqpfgehmq%2B0%3Bf32%3Bg1ee(e0%7Bm%60-196dd30c315-0x5#pd
+Content-Type: text/html; charset=utf-8
+Rlogid: t6awqpfgehmq%3C%3Dawqpfgehmq%2B0%3Bf32%3Bg1ee(e0%7Bm%60-196dd30c315-0x5
+Content-Encoding: gzip
+X-Envoy-Upstream-Service-Time: 375
+Server: ebay-proxy-server
+Strict-Transport-Security: max-age=31536000
+Date: Sat, 17 May 2025 07:41:22 GMT
+Vary: Accept-Encoding
+Set-Cookie: dp1=bbl/PK6beaa4a2^; Domain=.ebay.com; Path=/; Expires=Mon, 17 May 2027 07:41:22 GMT; Secure
+Set-Cookie: nonsession=BAQAAAZZay1gcAAaAADMABWoJcSI0NDAwMADKACBr6qSiZGQzMGMzMzUxOTYwYWI0Y2E5YjcyMmY2ZmZmZmIxOWIAywABaChEqjFA3Flu/ky0yMRpWhnAlBKLrccyRg**; Domain=.ebay.com; Path=/; Expires=Mon, 17 May 2027 07:41:22 GMT; HttpOnly; Secure
+Set-Cookie: s=CgAD4ACBoKY8iZGQzMGMzMzUxOTYwYWI0Y2E5YjcyMmY2ZmZmZmIxOWIBfwWi; Domain=.ebay.com; Path=/; HttpOnly; Secure
+Set-Cookie: ebay=%5Esbf%3D%23000000%5E; Domain=.ebay.com; Path=/; Secure

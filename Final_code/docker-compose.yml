@@ -1,0 +1,58 @@
+# version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    # environment:
+    #   - POSTGRES_HOST=db
+    #   - FLASK_APP=app.py
+    #   - FLASK_ENV=production
+    #   - SECRET_KEY=${SECRET_KEY}
+    #   - RECAPTCHA_SECRET_KEY=6LdhBOcqAAAAAF3yO9Oex4XsQsWi-gVuHMM_uYk7
+    #   - SMTP_SERVER=smtp.gmail.com
+    #   - SMTP_PORT=587
+    #   - SENDER_EMAIL=${SENDER_EMAIL}
+    #   - SENDER_PASSWORD=${SENDER_PASSWORD}
+    env_file:
+      - .env
+    volumes:
+      - ./uploads:/app/uploads
+      - ./scraped_data:/app/scraped_data
+      - ./static:/app/static
+      - ./templates:/app/templates
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  db:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=fypwork
+      - POSTGRES_DB=user_auth
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  app-network:
+    driver: bridge 

@@ -1,0 +1,37 @@
+Anger situations
+
+Sr,situation , description , reaction , response
+1 , rude tone , A friend talked in rude tone in a normal situation, got rude too with him , ignore him 
+2 , Rude Professor Comment , A professor tore my assignment during class, I got visibly angry , I should’ve stayed calm
+3 , sibling matter , Got furious on a tiny matter with sibling , abused badly , should have stayed calm 
+4 , Extra makeup , Got extra makeup class sudden , Got furious and irritated , should have accepted the situation 
+5 , pushing in bus , someone keep pushing in order to get seat while aboarding , blocked his way and stopped , should have given way calmly
+6 , Class cancelled , Almost reached university when only one class cancled , Got angry to friends and other , should have calm
+7 , Heated Argument , a disagreement with a friend , lost control and physically grabbed him , should have walked away
+8 , Harsh reaction , made a light joke, but my friend took it personally and started abusive ,  I stayed calm , did right maintained boundaries
+9 , cheated by someone , mobile repairer cheated in repairing , went to him and argued , did right
+10 , Friend Broke thing , friend took my glassses when i was washing face and broke it , I got very angry and yelled , I should’ve expressed my anger calmly
+11 , Someone cut in traffic , While driving another car dangerously cut off , abused him ,could have ignored him
+12 , Family criticized , A relative questioned my career decisions and criticized by point , I got aggressive in tone trying to prove point , should’ve calmly stated my perspective
+13 , marks reduced , Lost marks for not using marker , Got angry and asked teacher why marks reduced , after knowing reason accepted mistake and followed format
+14 , cousin broke earbud , cousin took my earbud without permission and broke it , i got harh and scolded , should had remain calm and careful 
+15 , Teacher marked absent , Teacher mistook and marked my absent , argued in front of the class,Should’ve spoken  privately
+
+stress situation
+
+Sr,situation , description , reaction , response
+1 , sudden quiz , God sudden quiz with no preperation , couldn’t think , should’ve focused on what I knew 
+2 , Internet Down , On assignment submission time net got down , I stressed and paniced , should have worked for alternative
+3 , Too Many Tasks , Multiple submissions and tests , Got panicked and stressed , I should’ve used a plan for tasks
+4 , Speaking Anxiety , had a presentation in front of class , lost confidence ,should’ve practiced more
+5 , Tyre Puncture , Had to go to somewhere urgent , got stressed first and then got uber , should have checked before about bike
+6 , laptop sudden crush , laptop sudden stoped working when i have imp work , felt stressed and hopeless , should’ve backed up of such situation
+7 , payment stuck , had to receive money got proof of transfer but no received , got stressed and called helpline , should have waited a while
+8 , missed assignment , I forgot and couldn’t submit assignment, panicked and stressed , I should’ve emailed the professor honestly
+9 , Presentation error , the laptop closed unexpectedly during presentation , I got rushed through it , I should have stopped and requested for alternate
+10 , Lost Notes , misplaced my hand-written notes ,got stressed and wasted hours to find them , Should have managed notes good way  
+11 , Forgot ID , reached the exam hall realized I forgot my university ID , got panicking, fearing I wouldn’t be allowed in , should’ve stayed calm and tell invigilator about situation
+12 , Forgot Exam , went blank during the exam , stressed due to  one question also missed other,should’ve relaxed focused other question.
+13 , Forgot to Bring Document, during inter board registration forgot imp document , got upset and stressed , should’ve created a checklist
+14 ,Professor Picked First , I was randomly asked answer I wasn’t ready for , I froze and forgot even i knew answer , I should’ve taken a moment to think
+15 , Forgot my phone ,  I forgot my phone in class chair after lec , after sometime got panicked first but then realized last time i had in class and checked in class , calmly dealt situtation and found phone 
