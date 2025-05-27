@@ -46,11 +46,10 @@ bcrypt = Bcrypt(app)
 CORS(app)
 
 # reCAPTCHA configuration
-RECAPTCHA_SECRET_KEY = "6LdhBOcqAAAAAF3yO9Oex4XsQsWi-gVuHMM_uYk7"
-
+RECAPTCHA_SECRET_KEY = os.getenv("RECAPTCHA_SECRET_KEY")
 # Email configuration
-SMTP_SERVER = "smtp.gmail.com"
-SMTP_PORT = 587
+SMTP_SERVER = os.getenv("SMTP_SERVER", "smtp.gmail.com")
+SMTP_PORT = int(os.getenv("SMTP_PORT", 587))
 SENDER_EMAIL = os.getenv("SENDER_EMAIL")
 SENDER_PASSWORD = os.getenv("SENDER_PASSWORD")
 
@@ -61,11 +60,11 @@ OTP_RESEND_DELAY = 120  # seconds
 # Database connection
 def get_db_connection():
     return psycopg2.connect(
-        dbname="user_auth",
-        user="postgres",
-        password="fypwork",
-        host="localhost",
-        port="5432"
+        dbname=os.getenv("POSTGRES_DB", "user_auth"),
+        user=os.getenv("POSTGRES_USER", "postgres"),
+        password=os.getenv("POSTGRES_PASSWORD"),
+        host=os.getenv('POSTGRES_HOST', 'localhost'),
+        port=os.getenv("POSTGRES_PORT", "5432")
     )
 
 # Utility functions
