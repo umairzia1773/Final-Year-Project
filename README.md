@@ -1,6 +1,6 @@
 # WEB WORK
 
-markdown
+
 # AI Chat Application
 
 A modern web-based chat application with AI capabilities, featuring real-time messaging, session management, and a responsive interface.
@@ -8,21 +8,27 @@ A modern web-based chat application with AI capabilities, featuring real-time me
 ## Project Structure
 
 ```
-project/
-├── static/
-│   ├── css/
+project/ ├── static/
+│   ├── css/ 
 │   │   └── styles.css
-│   └── js/
+│   │   └── style.css 
+│   └── js/ 
 │       └── chat.js
-├── templates/
-│   ├── chat.html
-│   ├── login.html
-│   ├── signup.html
-│   ├── password.html
-│   ├── verify.html
-│   └── reset-password.html
+│       └── script.js 
+├── templates/ 
+│   ├── chat.html 
+│   ├── login.html 
+│   ├── signup.html 
+│   ├── password.html 
+│   ├── verify.html 
+│   └── reset-password.html 
 ├── app.py
-└── requirements.txt
+├── brain.py
+├── entrypoint.sh 
+├── requirements.txt 
+├── Dockerfile 
+├── docker-compose.yml 
+└── .env
 ```
 
 ## Features
@@ -51,6 +57,7 @@ project/
   - PostgreSQL
   - Flask-Bcrypt
   - SMTP Email Service
+  - Docker/Docker Compose
 
 ## Database Schema
 
@@ -81,7 +88,7 @@ CREATE TABLE chat_history (
     message TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-```
+ ```
 
 ## Setup Instructions
 
@@ -93,10 +100,19 @@ pip install -r requirements.txt
 2. **Environment Variables:**
 Create a `.env` file with:
 ```
+FLASK_ENV= your_environment
+POSTGRES_HOST=Your_host
+POSTGRES_USER=your_set_user
+POSTGRES_PASSWORD=your_password
 SECRET_KEY=your_secret_key
 SENDER_EMAIL=your_email@gmail.com
 SENDER_PASSWORD=your_email_password
 RECAPTCHA_SECRET_KEY=your_recaptcha_key
+SMTP_SERVER=smtp.gmail.co
+SMTP_PORT= your port 
+GROQ_API_KEY=your_api_key
+OLLAMA_API_KEY=your_api_key
+
 ```
 
 3. **Database Setup:**
@@ -107,10 +123,58 @@ createdb user_auth
 # Run the SQL commands to create tables
 psql -d user_auth -f schema.sql
 ```
-
-4. **Run Application:**
+4. **Setting environment variable on powershell if needed**
 ```bash
+$env:POSTGRES_HOST="localhost"
+$env:FLASK_ENV="development"
+$env:POSTGRES_USER="postgres"
+$env:POSTGRES_PASSWORD="your_password"
+$env:POSTGRES_DB="user_auth"
+$env:SECRET_KEY="your_secret_key"
+$env:SENDER_EMAIL="your_email@gmail.com"
+$env:SENDER_PASSWORD="your_email_password"
+$env:RECAPTCHA_SECRET_KEY="your_recaptcha_key"
+$env:SMTP_SERVER="smtp.gmail.com"
+$env:SMTP_PORT="587"
+$env:GROQ_API_KEY="your_groq_key"
+$env:OLLAMA_API_KEY="your_ollama_key"
+```   
+5. **Run Application locally :**
+```bash
+$env:POSTGRES_HOST="localhost"
+$env:FLASK_ENV="development"
 python app.py
+```
+
+## DOCKER SETUP
+
+Prerequisites:
+- Docker
+- Docker Compose
+
+## Docker commands 
+
+```bash
+# Build and start containers
+docker-compose up --build
+
+# Start in detached mode
+docker-compose up -d
+
+# Stop containers
+docker-compose down
+
+# Build Docker image
+docker build -t chat-app .
+
+# Run Docker container
+docker run -d -p 5000:5000 --name chat-app chat-app
+
+# View logs
+docker logs chat-app
+
+# Enter container
+docker exec -it chat-app bash
 ```
 
 ## Key Features Implementation
